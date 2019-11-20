@@ -1,0 +1,34 @@
+PODS:
+  - Alamofire (4.9.1)
+  - NVActivityIndicatorView (4.8.0):
+    - NVActivityIndicatorView/Presenter (= 4.8.0)
+  - NVActivityIndicatorView/Presenter (4.8.0)
+  - ObjectMapper (3.3.0)
+  - SwiftyJSON (5.0.0)
+  - SwipeMenuViewController (4.0.0)
+
+DEPENDENCIES:
+  - Alamofire
+  - NVActivityIndicatorView
+  - ObjectMapper (= 3.3.0)
+  - SwiftyJSON
+  - SwipeMenuViewController
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - NVActivityIndicatorView
+    - ObjectMapper
+    - SwiftyJSON
+    - SwipeMenuViewController
+
+SPEC CHECKSUMS:
+  Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
+  NVActivityIndicatorView: d24b7ebcf80af5dcd994adb650e2b6c93379270f
+  ObjectMapper: b612bf8c8e99c4dc0bb6013a51f7c27966ed5da9
+  SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
+  SwipeMenuViewController: c2c1f9b62022ce6b904b2553f0fa340c9008becd
+
+PODFILE CHECKSUM: a248837ce9d8379788ced0940192cc90285964d9
+
+COCOAPODS: 1.8.4
