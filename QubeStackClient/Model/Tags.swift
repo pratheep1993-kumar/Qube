@@ -1,5 +1,5 @@
 //
-//  AllQuestionResponse.swift
+//  Tags.swift
 //  QubeStackClient
 //
 //  Created by pratheepkumar on 21/11/19.
@@ -8,13 +8,14 @@
 
 import Foundation
 import ObjectMapper
-
-class AllQuestionResponse: Mappable {
-
-    var items: [Items]?
-    func mapping(map: Map) {
-        items <- map["items"]
+class Tags: Mappable {
+    required init?(map: Map) {
+        
     }
-    required init(map _: Map) {}
-
+    
+    func mapping(map: Map) {
+        
+    }
+    
+    
 }
