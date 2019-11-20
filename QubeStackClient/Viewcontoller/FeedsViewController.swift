@@ -13,16 +13,22 @@ import SwipeMenuViewController
 
 class FeedsViewController: SwipeMenuViewController{
     
-     private var datas: [String] = ["Bulbasaur","Caterpie", "Golem", "Jynx", "Marshtomp", "Salamence", "Riolu", "Araquanid"]
-     var options = SwipeMenuViewOptions()
-       var dataCount: Int = 5
+    let categoryList: [Category] = [
+        Category.init(title: "Activity", sortType: "activity"),
+        Category.init(title: "Hot", sortType: "hot"),
+        Category.init(title: "Votes", sortType: "votes"),
+        Category.init(title: "Created Date", sortType: "creation")
+    ]
+    
+    var options = SwipeMenuViewOptions()
+    var dataCount: Int = 5
     
     override func viewDidLoad() {
-        datas.forEach { data in
+        categoryList.forEach { data in
             let storyboard: UIStoryboard = UIStoryboard(name: "FeedsTableView", bundle: nil)
             let vc = storyboard.instantiateViewController(withIdentifier: "ContentViewController") as! ContentViewController
-            vc.title = data
-          //  vc.content = data
+            vc.title = data.title
+            vc.category = data
             self.addChild(vc)
         }
       super.viewDidLoad()

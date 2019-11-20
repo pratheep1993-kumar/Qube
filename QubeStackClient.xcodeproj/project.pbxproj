@@ -29,6 +29,7 @@
 		0CE7095C2385DA7100AEEA50 /* ServicesApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE7095B2385DA7100AEEA50 /* ServicesApi.swift */; };
 		0CE7095F2385DB0300AEEA50 /* AppConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE7095E2385DB0300AEEA50 /* AppConstant.swift */; };
 		0CE709622385DCB900AEEA50 /* AllQuestionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE709612385DCB900AEEA50 /* AllQuestionResponse.swift */; };
+		0CE709642385E91300AEEA50 /* Parameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE709632385E91300AEEA50 /* Parameters.swift */; };
 		76A27369FB68857CA66EA44E /* Pods_QubeStackClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35565D322915E0266FF95FF2 /* Pods_QubeStackClient.framework */; };
 /* End PBXBuildFile section */
 
@@ -57,6 +58,7 @@
 		0CE7095B2385DA7100AEEA50 /* ServicesApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesApi.swift; sourceTree = "<group>"; };
 		0CE7095E2385DB0300AEEA50 /* AppConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstant.swift; sourceTree = "<group>"; };
 		0CE709612385DCB900AEEA50 /* AllQuestionResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllQuestionResponse.swift; sourceTree = "<group>"; };
+		0CE709632385E91300AEEA50 /* Parameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parameters.swift; sourceTree = "<group>"; };
 		35565D322915E0266FF95FF2 /* Pods_QubeStackClient.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QubeStackClient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AB61573CE63E2E49B0FDB15 /* Pods-QubeStackClient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QubeStackClient.debug.xcconfig"; path = "Target Support Files/Pods-QubeStackClient/Pods-QubeStackClient.debug.xcconfig"; sourceTree = "<group>"; };
 		E141922449E8FF8FAA36F239 /* Pods-QubeStackClient.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QubeStackClient.release.xcconfig"; path = "Target Support Files/Pods-QubeStackClient/Pods-QubeStackClient.release.xcconfig"; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 			children = (
 				0CE709352385780700AEEA50 /* Services.swift */,
 				0CE7095B2385DA7100AEEA50 /* ServicesApi.swift */,
+				0CE709632385E91300AEEA50 /* Parameters.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -313,6 +316,7 @@
 				0CE709002384FC8700AEEA50 /* AppDelegate.swift in Sources */,
 				0CE709542385CA4F00AEEA50 /* Product.swift in Sources */,
 				0CE7095F2385DB0300AEEA50 /* AppConstant.swift in Sources */,
+				0CE709642385E91300AEEA50 /* Parameters.swift in Sources */,
 				0CE7093923857F2500AEEA50 /* IndicatorView.swift in Sources */,
 				0CE709412385842900AEEA50 /* ErrorResponseModel.swift in Sources */,
 				0CE7093F238581DA00AEEA50 /* ShowAlertController.swift in Sources */,

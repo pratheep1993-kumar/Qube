@@ -10,16 +10,17 @@ import Foundation
 import UIKit
 import  ObjectMapper
 
-
+struct Category {
+    var title: String
+    var sortType: String
+}
 
 class ContentViewController: UIViewController {
 
     @IBOutlet weak var feedsListing: UITableView!
-    let animals: [String] = ["Horse", "Cow", "Camel", "Sheep", "Goat"]
-
-    
 
     var content: String = ""
+    var category : Category?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,10 +29,10 @@ class ContentViewController: UIViewController {
     }
     
     func getAllQuestions() {
-          Services.getAllQuestion(completionHandler: { response in
+        let param = Parameters.getEta(page: "1", pagesize: "10", order: "asc", sort: category!.sortType, site: "stackoverflow", fromdate: "1556668800", todate: "1572566400")
+          Services.getAllQuestion(parameters: param as [String: AnyObject],completionHandler: { response in
             let _: AllQuestionResponse = Mapper<AllQuestionResponse>().map(JSON: response.result.value as! [String: Any])!
 
-              self.feedsListing.reloadData()
           }) { _ in
           }
       }
@@ -44,13 +45,13 @@ extension ContentViewController: UITableViewDelegate, UITableViewDataSource {
  }
 
  func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
-    return animals.count
+    return 10
  }
 
 
  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
      let cell: FeedsTableViewCell = tableView.dequeueReusableCell(withIdentifier: "My_Reserved_Drinks_Cell", for: indexPath) as! FeedsTableViewCell
-    cell.sample.text = self.animals[indexPath.row]
+    //cell.sample.text = self.animals[indexPath.row]
      return cell
  }
 
@@ -59,6 +60,8 @@ func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 }
 
 }
+
+
 
 
 
