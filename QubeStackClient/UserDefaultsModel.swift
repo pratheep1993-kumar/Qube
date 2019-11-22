@@ -28,7 +28,7 @@ class UserDefaultsModel: NSObject {
     }
 
     class func isUserLoggedIn() -> Bool? {
-        return userDefaults().bool(forKey: USER_LOGIGGED_IN)
+        return userDefaults().bool(forKey: USER_LOGGED_IN)
     }
 
     

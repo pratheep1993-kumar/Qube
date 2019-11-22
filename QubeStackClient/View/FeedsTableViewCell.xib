@@ -123,6 +123,7 @@
             <connections>
                 <outlet property="tagList" destination="r0q-sS-GMa" id="Y1k-MZ-fTe"/>
                 <outlet property="title" destination="gHJ-fu-drF" id="j7I-SD-t4T"/>
+                <outlet property="upCount" destination="Qdd-Z0-eAM" id="bD9-Hs-8pf"/>
                 <outlet property="userName" destination="o9y-X8-uLp" id="ftA-H1-fQk"/>
             </connections>
             <point key="canvasLocation" x="137.68115942028987" y="140.625"/>

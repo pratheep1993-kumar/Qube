@@ -11,20 +11,43 @@ import Foundation
 
 class Parameters{
     
-    class func getEta(page: String,
-                      pagesize: String,order: String
+    class func getQuestion(page: String,
+                           pagesize: String,order: String
         ,sort: String,site: String,fromdate: String,todate: String) -> [String: Any] {
-           return [
-               "page": page,
-               "pagesize": pagesize,
-                "order": order,
-                 "sort": sort,
-                  "site": site,
-                   "fromdate": fromdate,
-                   "todate": todate,
-                       "key": "eoaW7zQs70UEV*FE5jTutg(("
-           ]
-       }
+        return [
+            "page": page,
+            "pagesize": pagesize,
+            "order": order,
+            "sort": sort,
+            "site": site,
+            "fromdate": fromdate,
+            "todate": todate,
+            "key": "eoaW7zQs70UEV*FE5jTutg(("
+        ]
+    }
+    
+    class func getMyQuestion(page: String,
+                             pagesize: String,order: String
+        ,sort: String,site: String,fromdate: String,todate: String,sessionToken: String) -> [String: Any] {
+        return [
+            "page": page,
+            "pagesize": pagesize,
+            "order": order,
+            "sort": sort,
+            "site": site,
+            "key": "eoaW7zQs70UEV*FE5jTutg((",
+            "access_token":sessionToken
+        ]
+    }
+    
+    class func getTagBasedQuestion(page: String) -> [String: Any] {
+        return [
+            "page": page,
+            "pagesize": 10,
+            "site": "stackoverflow",
+            "key": "eoaW7zQs70UEV*FE5jTutg(("
+        ]
+    }
 }
 
 

@@ -93,17 +93,12 @@ class Services {
     var activityIndicator: NVActivityIndicatorView?
 
     static func getHeaders() -> [String: String] {
-//        if UserDefaultsModel.isUserLoggedIn() {
-//            return ["Content-Type": "application/json", "App-Name": "HipBar-Drinks", "x-hasura-role": "user"]
-//        } else {
-            return ["Content-Type": "application/json", "App-Name": "HipBar-Drinks"]
-        //}
+            return ["Content-Type": "application/json"]
     }
 
     static func printDetails() {
         print(getHeaders())
         if let cookie = HTTPCookieStorage.shared.cookies {
-//            print("Cookie \(cookie)")
         }
     }
 
