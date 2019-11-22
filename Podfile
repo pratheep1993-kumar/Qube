@@ -11,5 +11,6 @@ pod 'NVActivityIndicatorView'
 pod 'SwiftyJSON'
 pod 'ObjectMapper' , '3.3.0'
 pod 'SwipeMenuViewController'
+pod 'TagListView'
 
 end

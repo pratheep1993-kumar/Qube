@@ -11,25 +11,26 @@ import ObjectMapper
 
 class Items: Mappable{
    //"tags"
-    var tags: [Tags]?
-    var owner: String
-    var isAnswered: Bool
-    var viewCount: Int
-    var  answerCount: Int
-    var  score: Int
-    var  lastActivityDate: Int
-    var  creationDate: Int
-    var  questionId: Int
-    var  link: String
-    var  title: String
-    var  acceptedAnswerId: Int
-    var  lastEditDate: Int
-    var  closedDate: Int
-    var  closedReason: String
+    var tags: [String]? = []
+    var owner: Owner?
+    var isAnswered: Bool?
+    var viewCount: Int?
+    var  answerCount: Int?
+    var  score: Int?
+    var  lastActivityDate: Int?
+    var  creationDate: Int?
+    var  questionId: Int?
+    var  link: String?
+    var  title: String?
+    var  acceptedAnswerId: Int?
+    var  lastEditDate: Int?
+    var  closedDate: Int?
+    var  closedReason: String?
 
-    required init?(map _: Map) {}
-    
+    required init(map _: Map) {}
+
     func mapping(map: Map) {
+        tags <- map["tags"]
         owner <- map["owner"]
         isAnswered <- map["is_answered"]
         viewCount <- map["view_count"]
@@ -45,6 +46,8 @@ class Items: Mappable{
         closedDate  <- map["closed_date"]
         closedReason  <- map["closed_reason"]
     }
+    
+    
     
     
 }

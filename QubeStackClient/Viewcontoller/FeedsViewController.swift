@@ -31,7 +31,16 @@ class FeedsViewController: SwipeMenuViewController{
             vc.category = data
             self.addChild(vc)
         }
-      super.viewDidLoad()
+        view.backgroundColor = .white
+//        options.tabView.itemView.width = 140
+//        options.tabView.needsAdjustItemViewWidth = false
+//        reload()
+        super.viewDidLoad()
     }
     
+    private func reload() {
+        if let menuView = swipeMenuView {
+            menuView.reloadData(options: options)
+        }
+    }
 }

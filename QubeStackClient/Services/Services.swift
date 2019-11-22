@@ -114,10 +114,10 @@ class Services {
                             errorHandler: responseHandler? = nil) {
         print(printDetails())
         print(urlString)
-        var indicatorView: IndicatorView?
-        if showIndicator == true {
-            indicatorView = IndicatorView.startAnimating()
-        }
+//        var indicatorView: IndicatorView?
+//        if showIndicator == true {
+//            indicatorView = IndicatorView.startAnimating()
+//        }
         Alamofire.request(urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!, parameters: parameters)
             .responseJSON(completionHandler: { response in
                 if let resultValue = response.result.value {
@@ -130,7 +130,7 @@ class Services {
                     failureHandler(response: response, errorHandler: errorHandler, checkNetworkConnection: checkNetworkConnection, error: error)
                 }
                 if showIndicator == true {
-                    indicatorView?.stopAnimating()
+                  //  indicatorView?.stopAnimating()
                 }
             })
     }
@@ -142,10 +142,10 @@ class Services {
         print(printDetails())
         print(urlString)
         print(printJson(params: parameters))
-        var indicatorView: IndicatorView?
-        if showIndicator == true {
-            indicatorView = IndicatorView.startAnimating()
-        }
+//        var indicatorView: IndicatorView?
+//        if showIndicator == true {
+//            indicatorView = IndicatorView.startAnimating()
+//        }
         let serviceManager = Alamofire.SessionManager.default
         serviceManager.session.configuration.timeoutIntervalForRequest = 120
         Alamofire.request(urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!,
@@ -164,7 +164,7 @@ class Services {
                     failureHandler(response: response, errorHandler: errorHandler, error: error)
                 }
                 if showIndicator == true {
-                    indicatorView?.stopAnimating()
+                    //indicatorView?.stopAnimating()
                 }
             })
     }
@@ -176,10 +176,10 @@ class Services {
         print(printDetails())
         print(urlString)
         print(printJson(params: parameters))
-        var indicatorView: IndicatorView?
-        if showIndicator == true {
-            indicatorView = IndicatorView.startAnimating()
-        }
+//        var indicatorView: IndicatorView?
+//        if showIndicator == true {
+//            indicatorView = IndicatorView.startAnimating()
+//        }
         Alamofire.request(urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!,
                           method: .put,
                           parameters: parameters,
@@ -196,7 +196,7 @@ class Services {
                     failureHandler(response: response, errorHandler: errorHandler, error: error)
                 }
                 if showIndicator == true {
-                    indicatorView?.stopAnimating()
+                   // indicatorView?.stopAnimating()
                 }
             })
     }
@@ -208,10 +208,10 @@ class Services {
         print(printDetails())
         print(urlString)
         print(printJson(params: parameters))
-        var indicatorView: IndicatorView?
-        if showIndicator == true {
-            indicatorView = IndicatorView.startAnimating()
-        }
+//        var indicatorView: IndicatorView?
+//        if showIndicator == true {
+//            indicatorView = IndicatorView.startAnimating()
+//        }
         let serviceManager = Alamofire.SessionManager.default
         serviceManager.session.configuration.timeoutIntervalForRequest = 120
         Alamofire.request(urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!,
@@ -230,7 +230,7 @@ class Services {
                     failureHandler(response: response, errorHandler: errorHandler, error: error)
                 }
                 if showIndicator == true {
-                    indicatorView?.stopAnimating()
+                   // indicatorView?.stopAnimating()
                 }
             })
     }

@@ -19,7 +19,7 @@ public struct SwipeMenuViewOptions {
 
         public struct ItemView {
             /// ItemView width. Defaults to `100.0`.
-            public var width: CGFloat = 100.0
+            public var width: CGFloat = 140.0
 
             /// ItemView side margin. Defaults to `5.0`.
             public var margin: CGFloat = 5.0
@@ -89,7 +89,7 @@ public struct SwipeMenuViewOptions {
         public var addition: Addition = .underline
 
         /// TabView adjust width or not. Defaults to `true`.
-        public var needsAdjustItemViewWidth: Bool = true
+        public var needsAdjustItemViewWidth: Bool = false
 
         /// Convert the text color of ItemView to selected text color by scroll rate of ContentScrollView. Defaults to `true`.
         public var needsConvertTextColorRatio: Bool = true

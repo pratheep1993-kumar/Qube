@@ -6,6 +6,7 @@ PODS:
   - ObjectMapper (3.3.0)
   - SwiftyJSON (5.0.0)
   - SwipeMenuViewController (4.0.0)
+  - TagListView (1.4.0)
 
 DEPENDENCIES:
   - Alamofire
@@ -13,6 +14,7 @@ DEPENDENCIES:
   - ObjectMapper (= 3.3.0)
   - SwiftyJSON
   - SwipeMenuViewController
+  - TagListView
 
 SPEC REPOS:
   trunk:
@@ -21,6 +23,7 @@ SPEC REPOS:
     - ObjectMapper
     - SwiftyJSON
     - SwipeMenuViewController
+    - TagListView
 
 SPEC CHECKSUMS:
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
@@ -28,7 +31,8 @@ SPEC CHECKSUMS:
   ObjectMapper: b612bf8c8e99c4dc0bb6013a51f7c27966ed5da9
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
   SwipeMenuViewController: c2c1f9b62022ce6b904b2553f0fa340c9008becd
+  TagListView: 987b0bdbb16cd9d9e7c0e2ec32aff37ecba8b173
 
-PODFILE CHECKSUM: a248837ce9d8379788ced0940192cc90285964d9
+PODFILE CHECKSUM: 1288508860aa43f27eef8483b00623b33330f5db
 
 COCOAPODS: 1.8.4

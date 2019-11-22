@@ -7,12 +7,22 @@
 //
 
 import UIKit
+import TagListView
 
-class FeedsTableViewCell: UITableViewCell {
-    @IBOutlet weak var sample: UILabel!
+
+class FeedsTableViewCell: UITableViewCell,TagListViewDelegate{
+    @IBOutlet weak var title: UILabel!
+    @IBOutlet weak var tagList: TagListView!
+    @IBOutlet weak var upCount: UILabel!
     
+    @IBOutlet weak var userImage: UIImageView!
+    
+    @IBOutlet weak var userName: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
+        tagList.delegate = self
+        tagList.textFont = UIFont.systemFont(ofSize: 16)
+        tagList.alignment = .left // possible values are [.leading, .trailing, .left, .center, .right]
         // Initialization code
     }
 
