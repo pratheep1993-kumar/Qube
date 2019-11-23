@@ -13,7 +13,8 @@ import ObjectMapper
 
 class TagViewController : UIViewController{
     
-    var myQuestionList: UITableView!
+    @IBOutlet weak var myQuestionList: UITableView!
+    // var myQuestionList: UITableView!
     //@IBOutlet weak var webView: WKWebView!
     var listQuestion: [Items] = [Items]()
     var tagName: String = ""
@@ -21,9 +22,9 @@ class TagViewController : UIViewController{
     
     
     override func viewDidLoad() {
-        myQuestionList = UITableView(frame: CGRect(x: 0, y: self.navigationController?.navigationBar.frame.maxY ?? 0, width: self.view.frame.width, height: self.view.frame.height))
-        myQuestionList.delegate = self
-        myQuestionList.dataSource = self
+//        myQuestionList = UITableView(frame: CGRect(x: 0, y: self.navigationController?.navigationBar.frame.maxY ?? 0, width: self.view.frame.width, height: self.view.frame.height))
+//        myQuestionList.delegate = self
+//        myQuestionList.dataSource = self
         self.myQuestionList.register(UINib(nibName: "FeedsTableViewCell", bundle: nil), forCellReuseIdentifier: "Feeds_Table_View_Cell")
         self.view.addSubview(myQuestionList!)
         getTagBasedQuestion()

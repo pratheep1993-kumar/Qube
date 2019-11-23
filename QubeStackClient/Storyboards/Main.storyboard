@@ -42,7 +42,7 @@
         <!--Tag View Controller-->
         <scene sceneID="qjj-qV-wsR">
             <objects>
-                <viewController id="qFE-ou-B8x" customClass="TagViewController" customModule="QubeStackClient" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TagViewController" id="qFE-ou-B8x" customClass="TagViewController" customModule="QubeStackClient" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3d3-RC-aII">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -65,6 +65,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="KSA-FL-5zf"/>
                     </view>
+                    <connections>
+                        <outlet property="myQuestionList" destination="LS1-gF-AHB" id="CTs-GC-gdc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iSM-he-P6v" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
