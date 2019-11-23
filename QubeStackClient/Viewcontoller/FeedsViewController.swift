@@ -25,7 +25,7 @@ class FeedsViewController: SwipeMenuViewController{
     
     override func viewDidLoad() {
         categoryList.forEach { data in
-            let storyboard: UIStoryboard = UIStoryboard(name: "FeedsTableView", bundle: nil)
+            let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             let vc = storyboard.instantiateViewController(withIdentifier: "ContentViewController") as! ContentViewController
             vc.title = data.title
             vc.category = data

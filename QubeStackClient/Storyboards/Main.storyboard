@@ -39,6 +39,71 @@
             </objects>
             <point key="canvasLocation" x="1165" y="-876"/>
         </scene>
+        <!--Tag View Controller-->
+        <scene sceneID="qjj-qV-wsR">
+            <objects>
+                <viewController id="qFE-ou-B8x" customClass="TagViewController" customModule="QubeStackClient" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3d3-RC-aII">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="LS1-gF-AHB">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="qFE-ou-B8x" id="oWG-Ay-H0X"/>
+                                    <outlet property="delegate" destination="qFE-ou-B8x" id="dfp-h4-2HN"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="LS1-gF-AHB" firstAttribute="top" secondItem="KSA-FL-5zf" secondAttribute="top" id="B69-ql-fxf"/>
+                            <constraint firstItem="KSA-FL-5zf" firstAttribute="trailing" secondItem="LS1-gF-AHB" secondAttribute="trailing" id="F6F-VU-v4L"/>
+                            <constraint firstItem="KSA-FL-5zf" firstAttribute="bottom" secondItem="LS1-gF-AHB" secondAttribute="bottom" id="oS6-DS-Uuy"/>
+                            <constraint firstItem="LS1-gF-AHB" firstAttribute="leading" secondItem="KSA-FL-5zf" secondAttribute="leading" id="rUD-vt-h6A"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="KSA-FL-5zf"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iSM-he-P6v" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-649" y="-257"/>
+        </scene>
+        <!--Content View Controller-->
+        <scene sceneID="Cpe-yY-Uul">
+            <objects>
+                <viewController storyboardIdentifier="ContentViewController" id="yjj-yx-jHJ" customClass="ContentViewController" customModule="QubeStackClient" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ij0-IU-jcE">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kWC-EB-Dcf">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="yjj-yx-jHJ" id="Mj2-PF-fdX"/>
+                                    <outlet property="delegate" destination="yjj-yx-jHJ" id="vkA-SK-E4v"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="kWC-EB-Dcf" firstAttribute="leading" secondItem="4E2-NJ-2Ut" secondAttribute="leading" id="T9J-la-haU"/>
+                            <constraint firstItem="kWC-EB-Dcf" firstAttribute="top" secondItem="4E2-NJ-2Ut" secondAttribute="top" id="Xlh-4p-FXw"/>
+                            <constraint firstItem="4E2-NJ-2Ut" firstAttribute="bottom" secondItem="kWC-EB-Dcf" secondAttribute="bottom" id="lYR-HE-QqC"/>
+                            <constraint firstItem="4E2-NJ-2Ut" firstAttribute="trailing" secondItem="kWC-EB-Dcf" secondAttribute="trailing" id="sA7-GM-QJn"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="4E2-NJ-2Ut"/>
+                    </view>
+                    <connections>
+                        <outlet property="feedsListing" destination="kWC-EB-Dcf" id="cFM-PT-Rlb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iiu-BW-PFq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="590" y="-218"/>
+        </scene>
         <!--Item 1-->
         <scene sceneID="Tai-j8-2bB">
             <objects>
