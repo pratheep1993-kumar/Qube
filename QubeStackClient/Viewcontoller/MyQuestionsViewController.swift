@@ -15,42 +15,16 @@ import TagListView
 class MyQuestionsViewController: UIViewController,WKNavigationDelegate{
     
     var myQuestionList: UITableView!
-    //@IBOutlet weak var webView: WKWebView!
     var wkWebView : WKWebView!
     var listQuestion: [Items] = [Items]()
-    var progressView : HorizontalProgressBar?
-    
     let redirectURI : String = "https://stackoverflow.com/oauth/login_success"
     let replaceURI : String =  "https://stackoverflow.com/oauth/login_success#"
     let regex = "https:\\/\\/stackoverflow.com\\/oauth\\/login_success#access_token=[A-Za-z0-9!@#$%^{}|()]+&expires=[0-9]+"
     
     
     override func viewDidLoad() {
-        let button1 = UIBarButtonItem(image: UIImage(named: "question"), style: .done, target: self, action: #selector(getter: UICommandAlternate.action))
-        let btn = UIBarButtonItem.init(title: "Logout", style: UIBarButtonItem.Style.done, target: self, action: #selector(getter: UICommandAlternate.action))
-        self.navigationController?.navigationItem.rightBarButtonItem = btn
-//        self.navigationItem.rightBarButtonItem  = btn
-        self.navigationController?.navigationBar.topItem?.title = "My Questions"
-        self.navigationController?.navigationBar.topItem?.rightBarButtonItem = btn
-        wkWebView = WKWebView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height))
-        wkWebView?.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        wkWebView?.navigationDelegate = self
-        self.view.addSubview(wkWebView!)
-        
-        progressView = HorizontalProgressBar(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 2))
-        progressView?.pgWidth = self.view.frame.width
-        progressView?.pgHeight = 4
-        progressView?.bgColor = UIColor.clear
-        self.view.addSubview(progressView!)
-        
-        
-        myQuestionList = UITableView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height))
-        myQuestionList.delegate = self
-        myQuestionList.dataSource = self
-        self.myQuestionList.register(UINib(nibName: "FeedsTableViewCell", bundle: nil), forCellReuseIdentifier: "Feeds_Table_View_Cell")
-        self.view.addSubview(myQuestionList!)
-        
-        funcToCallWhenStartLoadingYourWebview()
+        initWebView()
+        initTableView()
         checkAndSetTransaction()
         if UserDefaultsModel.isUserLoggedIn() ?? false {
             showMyQuestion()
@@ -60,16 +34,62 @@ class MyQuestionsViewController: UIViewController,WKNavigationDelegate{
         
     }
     
+    func initWebView(){
+        wkWebView = WKWebView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height))
+        wkWebView?.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        wkWebView?.navigationDelegate = self
+        self.view.addSubview(wkWebView!)
+    }
+    
+    
+    func initTableView(){
+        myQuestionList = UITableView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height))
+               myQuestionList.delegate = self
+               myQuestionList.dataSource = self
+               self.myQuestionList.register(UINib(nibName: "FeedsTableViewCell", bundle: nil), forCellReuseIdentifier: "Feeds_Table_View_Cell")
+               self.view.addSubview(myQuestionList!)
+    }
+    
+    @objc func sayLogout(sender: UIBarButtonItem) {
+        let alert = UIAlertController(title: "Alert", message: "Do you want to logout?", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { action in
+            self.clearcacheAndCookie()
+        }))
+        alert.addAction(UIAlertAction(title: "NO", style: .default, handler: { action in
+            
+        }))
+        self.present(alert, animated: true)
+        
+    }
+    
+    
+    
+    func clearcacheAndCookie(){
+        URLCache.shared.removeAllCachedResponses()
+        URLCache.shared.diskCapacity = 0
+        URLCache.shared.memoryCapacity = 0
+        wkWebView.cleanAllCookies()
+        wkWebView.refreshCookies()
+        UserDefaultsModel.setObject(object: nil, forKey: SESSION_TOKEN)
+        UserDefaultsModel.setObject(object: false, forKey: USER_LOGGED_IN)
+        self.showLogin()
+    }
     
     func showMyQuestion(){
+        let logOut = UIBarButtonItem(image: UIImage(named: "logout-blue"), style: .done, target: self, action: #selector(sayLogout(sender:)))
+        self.navigationController?.navigationBar.topItem?.title = "My Questions"
+        self.navigationController?.navigationBar.topItem?.rightBarButtonItem = logOut
         wkWebView.isHidden = true
         myQuestionList.isHidden = false
         getMyQuestion()
     }
     
     func showLogin() {
+        self.navigationController?.navigationBar.topItem?.title = "Log in"
+        self.navigationController?.navigationBar.topItem?.rightBarButtonItem = nil
         wkWebView.isHidden = false
         myQuestionList.isHidden = true
+        checkAndSetTransaction()
     }
     
     
@@ -84,12 +104,12 @@ class MyQuestionsViewController: UIViewController,WKNavigationDelegate{
     }
     
     
-    func checkAndSetTransaction(){
+    func gicheckAndSetTransaction(){
         var urlComponents = URLComponents()
         urlComponents.scheme = "https"
         urlComponents.host = "stackoverflow.com"
         urlComponents.path = "/oauth/dialog"
-        urlComponents.setQueryItems(with: getEta(client_id: "16698", scope: "", redirect_uri: redirectURI) as [String : AnyObject])
+        urlComponents.setQueryItems(with: loginParams(client_id: "16698", scope: "", redirect_uri: redirectURI) as [String : AnyObject])
         let myBlog = urlComponents.url?.absoluteString ?? ""
         let url = NSURL(string: myBlog)
         let request = NSURLRequest(url: url! as URL)
@@ -97,13 +117,9 @@ class MyQuestionsViewController: UIViewController,WKNavigationDelegate{
         
     }
     
-    func funcToCallWhenStartLoadingYourWebview() {
-        progressView?.isHidden = false
-        self.progressView?.startAnimation(type: "normal", duration: 3.0)
-    }
+   
     
-    
-    func getEta(client_id:String,scope: String,redirect_uri: String) -> [String: Any] {
+    func loginParams(client_id:String,scope: String,redirect_uri: String) -> [String: Any] {
         return [
             "client_id": client_id,
             "scope": scope,
@@ -113,12 +129,10 @@ class MyQuestionsViewController: UIViewController,WKNavigationDelegate{
     
     
     override func viewWillAppear(_ animated: Bool) {
-        setUpNavigationItem()
+       
     }
     
-    func setUpNavigationItem() {
-        
-    }
+ 
     private func webView(webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: NSError) {
         print(error.localizedDescription)
     }
@@ -133,17 +147,26 @@ class MyQuestionsViewController: UIViewController,WKNavigationDelegate{
             if urlStr.range(of: regex , options: .regularExpression) != nil {
                 let accessToken = urlStr.replacingOccurrences(of: "https://stackoverflow.com/oauth/login_success#access_token=", with: "").replacingOccurrences(of: "&expires=86400", with: "")
                 print("bucjket \(accessToken)")
-                UserDefaultsModel.setObject(object: accessToken, forKey: SESSION_TOKEN)
-                UserDefaultsModel.setObject(object: true, forKey: USER_LOGGED_IN)
-                if (UserDefaultsModel.getSessionToken() != ""){
-                    showMyQuestion()
-                }
+                saveSessionToken(accessToken: accessToken)
             }
         }
         decisionHandler(.allow)
     }
     
+    func saveSessionToken(accessToken: String){
+        UserDefaultsModel.setObject(object: accessToken, forKey: SESSION_TOKEN)
+        UserDefaultsModel.setObject(object: true, forKey: USER_LOGGED_IN)
+        if (UserDefaultsModel.getSessionToken() != ""){
+            self.showMyQuestion()
+        }
+
+    }
+    
 }
+
+
+
+
 
 extension URL {
     subscript(queryParam:String) -> String? {
@@ -185,5 +208,25 @@ extension MyQuestionsViewController : TagListViewDelegate {
         let vc = TagViewController()
         vc.tagName = title//change this to your class name
         self.present(vc, animated: true, completion: nil)
+    }
+}
+
+
+extension WKWebView {
+    
+    func cleanAllCookies() {
+        HTTPCookieStorage.shared.removeCookies(since: Date.distantPast)
+        print("All cookies deleted")
+        
+        WKWebsiteDataStore.default().fetchDataRecords(ofTypes: WKWebsiteDataStore.allWebsiteDataTypes()) { records in
+            records.forEach { record in
+                WKWebsiteDataStore.default().removeData(ofTypes: record.dataTypes, for: [record], completionHandler: {})
+                print("Cookie ::: \(record) deleted")
+            }
+        }
+    }
+    
+    func refreshCookies() {
+        self.configuration.processPool = WKProcessPool()
     }
 }

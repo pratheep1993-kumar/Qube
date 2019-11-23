@@ -21,9 +21,9 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8ve-vz-XnR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-823" y="-1176"/>
+            <point key="canvasLocation" x="-503" y="-1177"/>
         </scene>
-        <!--Item 2-->
+        <!--My Questions-->
         <scene sceneID="0VQ-XS-wue">
             <objects>
                 <viewController storyboardIdentifier="MyQuestionsViewController" id="Lcj-Y8-guE" customClass="MyQuestionsViewController" customModule="QubeStackClient" customModuleProvider="target" sceneMemberID="viewController">
@@ -33,11 +33,11 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="2Ej-RN-t95"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="acL-Sv-uI7"/>
+                    <tabBarItem key="tabBarItem" title="My Questions" image="question" id="acL-Sv-uI7"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dUl-Xw-uaq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1165" y="-876"/>
+            <point key="canvasLocation" x="-504" y="-379"/>
         </scene>
         <!--Tag View Controller-->
         <scene sceneID="qjj-qV-wsR">
@@ -71,7 +71,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iSM-he-P6v" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-649" y="-257"/>
+            <point key="canvasLocation" x="1917" y="-1177"/>
         </scene>
         <!--Content View Controller-->
         <scene sceneID="Cpe-yY-Uul">
@@ -105,23 +105,23 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iiu-BW-PFq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="590" y="-218"/>
+            <point key="canvasLocation" x="2828" y="-1177"/>
         </scene>
-        <!--Item 1-->
+        <!--Feeds-->
         <scene sceneID="Tai-j8-2bB">
             <objects>
-                <viewController id="Wmp-dA-VUv" customClass="HomeViewController" customModule="QubeStackClient" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Wmp-dA-VUv" customClass="FeedsViewController" customModule="QubeStackClient" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YyZ-Kp-VXR">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="fEy-uA-vHV"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 1" id="ixg-UN-mQz"/>
+                    <tabBarItem key="tabBarItem" title="Feeds" image="home-page" id="ixg-UN-mQz"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yWP-iL-d3i" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1165" y="-1523"/>
+            <point key="canvasLocation" x="1057" y="-379"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="bXL-Pi-cQw">
@@ -140,7 +140,11 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3bv-K3-z6N" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="246" y="-1200"/>
+            <point key="canvasLocation" x="291" y="-1177"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="home-page" width="16" height="16"/>
+        <image name="question" width="16" height="16"/>
+    </resources>
 </document>

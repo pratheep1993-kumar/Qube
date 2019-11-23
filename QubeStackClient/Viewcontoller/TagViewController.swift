@@ -29,6 +29,12 @@ class TagViewController : UIViewController{
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+            self.navigationController?.navigationBar.topItem?.title = "tags"
+            self.navigationController?.navigationBar.topItem?.rightBarButtonItem = nil
+       }
+    
+    
     
     func getTagBasedQuestion() {
         let param = Parameters.getTagBasedQuestion(page: "1")

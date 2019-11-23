@@ -33,6 +33,10 @@ class ContentViewController: UIViewController {
         self.feedsListing.register(UINib(nibName: "FeedsTableViewCell", bundle: nil), forCellReuseIdentifier: "Feeds_Table_View_Cell")
         getAllQuestions()
     }
+    override func viewWillAppear(_ animated: Bool) {
+         self.navigationController?.navigationBar.topItem?.title = "Feeds"
+         self.navigationController?.navigationBar.topItem?.rightBarButtonItem = nil
+    }
     
     func getAllQuestions() {
         let param = Parameters.getQuestion(page: "1", pagesize: "10", order: "asc", sort: category!.sortType, site: "stackoverflow", fromdate: "1556668800", todate: "1572566400")
