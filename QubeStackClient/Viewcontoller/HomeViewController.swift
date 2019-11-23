@@ -13,12 +13,12 @@ import UIKit
 class HomeViewController: UITabBarController,UITabBarControllerDelegate{
     override func viewDidLoad() {
         self.delegate = self
-
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
-           super.viewWillAppear(animated)
-           
+        super.viewWillAppear(animated)
+        
         // Create Tab one
         let tabOne = FeedsViewController()
         let tabOneBarItem = UITabBarItem(title: "Question", image: UIImage(named: "question.png"), selectedImage: UIImage(named: "question-selected.png"))
@@ -34,9 +34,9 @@ class HomeViewController: UITabBarController,UITabBarControllerDelegate{
         
         
         self.viewControllers = [tabOne, tabTwo]
-       }
+    }
     
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
-         
-      }
+        
+    }
 }

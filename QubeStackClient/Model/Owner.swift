@@ -24,11 +24,11 @@ class Owner: Mappable{
     
     func mapping(map: Map) {
         reputation <- map["reputation"]
-         user_id <- map["user_id"]
-         user_type <- map["user_type"]
-         profile_image <- map["profile_image"]
-         display_name <- map["display_name"]
-         link <- map["link"]
+        user_id <- map["user_id"]
+        user_type <- map["user_type"]
+        profile_image <- map["profile_image"]
+        display_name <- map["display_name"]
+        link <- map["link"]
     }
     
     

@@ -10,7 +10,7 @@ import Foundation
 import ObjectMapper
 
 class Items: Mappable{
-   //"tags"
+    //"tags"
     var tags: [String]? = []
     var owner: Owner?
     var isAnswered: Bool?
@@ -26,9 +26,9 @@ class Items: Mappable{
     var  lastEditDate: Int?
     var  closedDate: Int?
     var  closedReason: String?
-
+    
     required init(map _: Map) {}
-
+    
     func mapping(map: Map) {
         tags <- map["tags"]
         owner <- map["owner"]

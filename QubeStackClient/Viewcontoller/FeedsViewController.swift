@@ -32,9 +32,9 @@ class FeedsViewController: SwipeMenuViewController{
             self.addChild(vc)
         }
         view.backgroundColor = .white
-//        options.tabView.itemView.width = 140
-//        options.tabView.needsAdjustItemViewWidth = false
-//        reload()
+        //        options.tabView.itemView.width = 140
+        //        options.tabView.needsAdjustItemViewWidth = false
+        //        reload()
         super.viewDidLoad()
     }
     

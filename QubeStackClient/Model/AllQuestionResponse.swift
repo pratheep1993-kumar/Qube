@@ -10,11 +10,11 @@ import Foundation
 import ObjectMapper
 
 class AllQuestionResponse: Mappable {
-
+    
     var items: [Items]?
     func mapping(map: Map) {
         items <- map["items"]
     }
     required init(map _: Map) {}
-
+    
 }

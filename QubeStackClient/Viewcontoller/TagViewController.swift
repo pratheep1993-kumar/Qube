@@ -21,11 +21,9 @@ class TagViewController : UIViewController{
     
     
     override func viewDidLoad() {
-        self.navigationController?.navigationBar.isHidden = false
         myQuestionList = UITableView(frame: CGRect(x: 0, y: self.navigationController?.navigationBar.frame.maxY ?? 0, width: self.view.frame.width, height: self.view.frame.height))
         myQuestionList.delegate = self
         myQuestionList.dataSource = self
-        
         self.myQuestionList.register(UINib(nibName: "FeedsTableViewCell", bundle: nil), forCellReuseIdentifier: "Feeds_Table_View_Cell")
         self.view.addSubview(myQuestionList!)
         getTagBasedQuestion()

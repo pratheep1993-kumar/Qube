@@ -34,7 +34,6 @@ class MyQuestionsViewController: UIViewController,WKNavigationDelegate{
         progressView = HorizontalProgressBar(frame: CGRect(x: 0, y: self.navigationController?.navigationBar.frame.maxY ?? 0, width: self.view.frame.width, height: 2))
         progressView?.pgWidth = self.view.frame.width
         progressView?.pgHeight = 4
-        progressView?.barColor = BG_COLOR
         progressView?.bgColor = UIColor.clear
         self.view.addSubview(progressView!)
         
@@ -130,6 +129,9 @@ class MyQuestionsViewController: UIViewController,WKNavigationDelegate{
                 print("bucjket \(accessToken)")
                 UserDefaultsModel.setObject(object: accessToken, forKey: SESSION_TOKEN)
                 UserDefaultsModel.setObject(object: true, forKey: USER_LOGGED_IN)
+                if (UserDefaultsModel.getSessionToken() != ""){
+                    showMyQuestion()
+                }
             }
         }
         decisionHandler(.allow)
