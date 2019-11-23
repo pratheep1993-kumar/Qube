@@ -26,19 +26,25 @@ class MyQuestionsViewController: UIViewController,WKNavigationDelegate{
     
     
     override func viewDidLoad() {
-        wkWebView = WKWebView(frame: CGRect(x: 0, y: self.navigationController?.navigationBar.frame.maxY ?? 0, width: self.view.frame.width, height: self.view.frame.height))
+        let button1 = UIBarButtonItem(image: UIImage(named: "question"), style: .done, target: self, action: #selector(getter: UICommandAlternate.action))
+        let btn = UIBarButtonItem.init(title: "Logout", style: UIBarButtonItem.Style.done, target: self, action: #selector(getter: UICommandAlternate.action))
+        self.navigationController?.navigationItem.rightBarButtonItem = btn
+//        self.navigationItem.rightBarButtonItem  = btn
+        self.navigationController?.navigationBar.topItem?.title = "My Questions"
+        self.navigationController?.navigationBar.topItem?.rightBarButtonItem = btn
+        wkWebView = WKWebView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height))
         wkWebView?.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         wkWebView?.navigationDelegate = self
         self.view.addSubview(wkWebView!)
         
-        progressView = HorizontalProgressBar(frame: CGRect(x: 0, y: self.navigationController?.navigationBar.frame.maxY ?? 0, width: self.view.frame.width, height: 2))
+        progressView = HorizontalProgressBar(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 2))
         progressView?.pgWidth = self.view.frame.width
         progressView?.pgHeight = 4
         progressView?.bgColor = UIColor.clear
         self.view.addSubview(progressView!)
         
         
-        myQuestionList = UITableView(frame: CGRect(x: 0, y: self.navigationController?.navigationBar.frame.maxY ?? 0, width: self.view.frame.width, height: self.view.frame.height))
+        myQuestionList = UITableView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height))
         myQuestionList.delegate = self
         myQuestionList.dataSource = self
         self.myQuestionList.register(UINib(nibName: "FeedsTableViewCell", bundle: nil), forCellReuseIdentifier: "Feeds_Table_View_Cell")
