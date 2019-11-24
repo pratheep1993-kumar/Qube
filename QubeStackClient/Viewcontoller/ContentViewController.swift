@@ -40,7 +40,7 @@ class ContentViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.feedsListing.register(UINib(nibName: "FeedsTableViewCell", bundle: nil), forCellReuseIdentifier: "Feeds_Table_View_Cell")
-         feedsListing.allowsSelection = false
+        feedsListing.allowsSelection = false
         intNoResultFound()
         getAllQuestions()
     }
@@ -53,8 +53,8 @@ class ContentViewController: UIViewController {
         noResultFound.textAlignment = .center
     }
     override func viewWillAppear(_ animated: Bool) {
-         self.navigationController?.navigationBar.topItem?.title = "Feeds"
-         self.navigationController?.navigationBar.topItem?.rightBarButtonItem = nil
+        self.navigationController?.navigationBar.topItem?.title = "Feeds"
+        self.navigationController?.navigationBar.topItem?.rightBarButtonItem = nil
     }
     
     
@@ -62,15 +62,15 @@ class ContentViewController: UIViewController {
     
     func getAllQuestions() {
         let progress = JGProgressHUD(style: .dark)
-         progress.show(in: self.view)
+        progress.show(in: self.view)
         isLoading = true
         let param = Parameters.getQuestion(page: "1", sort: category!.sortType, site: "stackoverflow")
         Services.getAllQuestion(parameters: param as [String: AnyObject],completionHandler: { response in
-             progress.dismiss()
+            progress.dismiss()
             let data: AllQuestionResponse = Mapper<AllQuestionResponse>().map(JSON: response.result.value as! [String: Any])!
             self.listQuestion = data.items!
             if data.items!.count > 0 {
-            self.feedsListing.reloadData()
+                self.feedsListing.reloadData()
             }else{
                 self.feedsListing.isHidden = true
             }

@@ -32,9 +32,9 @@ class FeedsViewController: SwipeMenuViewController{
             self.addChild(vc)
         }
         if self.traitCollection.userInterfaceStyle == .dark {
-             view.backgroundColor = .gray
+            view.backgroundColor = .gray
         } else {
-             view.backgroundColor = .white
+            view.backgroundColor = .white
         }
         super.viewDidLoad()
     }

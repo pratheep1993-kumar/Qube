@@ -23,21 +23,21 @@ class TagViewController : UIViewController{
     override func viewDidLoad() {
         self.navigationController?.navigationBar.isHidden = false
         self.myQuestionList.register(UINib(nibName: "FeedsTableViewCell", bundle: nil), forCellReuseIdentifier: "Feeds_Table_View_Cell")
-       myQuestionList.allowsSelection = false
+        myQuestionList.allowsSelection = false
         self.view.addSubview(myQuestionList!)
         getTagBasedQuestion()
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.navigationController?.navigationBar.topItem?.rightBarButtonItem = nil
+        self.navigationController?.navigationItem.rightBarButtonItem = nil
     }
     
     
     
     func getTagBasedQuestion() {
         let progress = JGProgressHUD(style: .dark)
-              progress.show(in: self.view)
+        progress.show(in: self.view)
         let param = Parameters.getTagBasedQuestion(page: "1")
         Services.getTagBasedQuestion(tag: tagName, parameters: param as [String: AnyObject],completionHandler: { response in
             progress.dismiss()

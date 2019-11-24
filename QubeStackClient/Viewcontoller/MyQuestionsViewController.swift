@@ -234,8 +234,8 @@ extension MyQuestionsViewController: UITableViewDelegate, UITableViewDataSource 
 extension MyQuestionsViewController : TagListViewDelegate {
     func tagPressed(_ title: String, tagView: TagView, sender: TagListView) {
         print("Tag pressed: \(title), \(sender)")
-         let tagViewController = self.storyboard?.instantiateViewController(withIdentifier: "TagViewController") as! TagViewController
-         tagViewController.tagName = title
+        let tagViewController = self.storyboard?.instantiateViewController(withIdentifier: "TagViewController") as! TagViewController
+        tagViewController.tagName = title
         self.navigationController?.pushViewController(tagViewController, animated: true)
     }
 }

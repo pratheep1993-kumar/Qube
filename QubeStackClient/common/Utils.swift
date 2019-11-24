@@ -11,7 +11,7 @@ import Foundation
 
 class Utils{
     
-   class func getDateFromTimeStamp(timeStamp : Double) -> String {
+    class func getDateFromTimeStamp(timeStamp : Double) -> String {
         let date = NSDate(timeIntervalSince1970: timeStamp)
         let dayTimePeriodFormatter = DateFormatter()
         dayTimePeriodFormatter.dateFormat = "dd MMM YY, hh:mm a"

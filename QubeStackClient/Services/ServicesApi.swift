@@ -11,8 +11,8 @@ extension Services {
     
     static func getAllQuestion(parameters: [String: AnyObject],completionHandler: @escaping responseHandler, errorHandler: @escaping responseHandler) {
         var urlComponents = URLComponents()
-        urlComponents.scheme = "https"
-        urlComponents.host = "api.stackexchange.com"
+        urlComponents.scheme = scheme
+        urlComponents.host = host
         urlComponents.path = "/2.2/questions"
         urlComponents.setQueryItems(with: parameters)
         makeGETCall(urlString: urlComponents.url?.absoluteString ?? "" ,
@@ -23,8 +23,8 @@ extension Services {
     
     static func getMyQuestion(parameters: [String: AnyObject],completionHandler: @escaping responseHandler, errorHandler: @escaping responseHandler) {
         var urlComponents = URLComponents()
-        urlComponents.scheme = "https"
-        urlComponents.host = "api.stackexchange.com"
+        urlComponents.scheme = scheme
+        urlComponents.host = host
         urlComponents.path = "/2.2/me/questions"
         urlComponents.setQueryItems(with: parameters)
         makeGETCall(urlString: urlComponents.url?.absoluteString ?? "" ,
@@ -35,8 +35,8 @@ extension Services {
     
     static func getTagBasedQuestion(tag: String,parameters: [String: AnyObject],completionHandler: @escaping responseHandler, errorHandler: @escaping responseHandler) {
         var urlComponents = URLComponents()
-        urlComponents.scheme = "https"
-        urlComponents.host = "api.stackexchange.com"
+        urlComponents.scheme = scheme
+        urlComponents.host = host
         urlComponents.path = "/2.2/tags/\(tag)/faq"
         urlComponents.setQueryItems(with: parameters)
         makeGETCall(urlString: urlComponents.url?.absoluteString ?? "" ,
