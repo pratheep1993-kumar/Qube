@@ -19,7 +19,6 @@ class MyQuestionsViewController: UIViewController,WKNavigationDelegate{
     var listQuestion: [Items] = [Items]()
     let redirectURI : String = "https://stackoverflow.com/oauth/login_success"
     let replaceURI : String =  "https://stackoverflow.com/oauth/login_success#"
-    let regex = "https:\\/\\/stackoverflow.com\\/oauth\\/login_success#access_token=[A-Za-z0-9!@#$%^{}|()]+&expires=[0-9]+"
     
     
     override func viewDidLoad() {
@@ -71,11 +70,17 @@ class MyQuestionsViewController: UIViewController,WKNavigationDelegate{
         URLCache.shared.removeAllCachedResponses()
         URLCache.shared.diskCapacity = 0
         URLCache.shared.memoryCapacity = 0
-        wkWebView.cleanAllCookies()
-        wkWebView.refreshCookies()
+        HTTPCookieStorage.shared.removeCookies(since: Date.distantPast)
         UserDefaultsModel.setObject(object: nil, forKey: SESSION_TOKEN)
         UserDefaultsModel.setObject(object: false, forKey: USER_LOGGED_IN)
-        self.showLogin()
+        WKWebsiteDataStore.default().fetchDataRecords(ofTypes: WKWebsiteDataStore.allWebsiteDataTypes()) { records in
+            records.forEach { record in
+                WKWebsiteDataStore.default().removeData(ofTypes: record.dataTypes, for: [record], completionHandler: {})
+                self.showLogin()
+            }
+        }
+        
+        
     }
     
     func showMyQuestion(){
@@ -86,12 +91,12 @@ class MyQuestionsViewController: UIViewController,WKNavigationDelegate{
     }
     
     func showLogin() {
-        wkWebView.cleanAllCookies()
-        wkWebView.refreshCookies()
         wkWebView.isHidden = false
         myQuestionList.isHidden = true
-        self.setLogOutNavigation()
+        //        wkWebView.cleanAllCookies()
+        //        wkWebView.refreshCookies()
         checkAndSetTransaction()
+        self.setLogOutNavigation()
     }
     
     
@@ -211,10 +216,11 @@ extension MyQuestionsViewController: UITableViewDelegate, UITableViewDataSource 
         let cell: FeedsTableViewCell = tableView.dequeueReusableCell(withIdentifier: "Feeds_Table_View_Cell", for: indexPath) as! FeedsTableViewCell
         cell.title.text = listQuestion[indexPath.row].title
         cell.userName.text = listQuestion[indexPath.row].owner?.display_name
+        cell.tagList.removeAllTags()
         cell.tagList.addTags(listQuestion[indexPath.row].tags ?? [""])
         cell.tagList.delegate = self
         cell.timeStamp.text = Utils.getDateFromTimeStamp(timeStamp: Double(listQuestion[indexPath.row].creationDate ?? 0))
-        cell.upCount.text = "\(String(describing: listQuestion[indexPath.row].answerCount))"
+        cell.upCount.text = "\(String(describing: listQuestion[indexPath.row].score))"
         return cell
     }
     
@@ -236,19 +242,19 @@ extension MyQuestionsViewController : TagListViewDelegate {
 
 extension WKWebView {
     
-    func cleanAllCookies() {
-        HTTPCookieStorage.shared.removeCookies(since: Date.distantPast)
-        print("All cookies deleted")
-        
-        WKWebsiteDataStore.default().fetchDataRecords(ofTypes: WKWebsiteDataStore.allWebsiteDataTypes()) { records in
-            records.forEach { record in
-                WKWebsiteDataStore.default().removeData(ofTypes: record.dataTypes, for: [record], completionHandler: {})
-                print("Cookie ::: \(record) deleted")
-            }
-        }
-    }
-    
-    func refreshCookies() {
-        self.configuration.processPool = WKProcessPool()
-    }
+    //    func cleanAllCookies() {
+    //        HTTPCookieStorage.shared.removeCookies(since: Date.distantPast)
+    //        print("All cookies deleted")
+    //
+    //        WKWebsiteDataStore.default().fetchDataRecords(ofTypes: WKWebsiteDataStore.allWebsiteDataTypes()) { records in
+    //            records.forEach { record in
+    //                WKWebsiteDataStore.default().removeData(ofTypes: record.dataTypes, for: [record], completionHandler: {})
+    //                print("Cookie ::: \(record) deleted")
+    //            }
+    //        }
+    //    }
+    //
+    //    func refreshCookies() {
+    //        self.configuration.processPool = WKProcessPool()
+    //    }
 }

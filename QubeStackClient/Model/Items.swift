@@ -15,8 +15,8 @@ class Items: Mappable{
     var owner: Owner?
     var isAnswered: Bool?
     var viewCount: Int?
-    var  answerCount: Int? = 0
-    var  score: Int?
+    var  answerCount: Int?
+    var  score: Int = 0
     var  lastActivityDate: Int?
     var  creationDate: Int?
     var  questionId: Int?

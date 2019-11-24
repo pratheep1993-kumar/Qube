@@ -63,8 +63,9 @@ extension TagViewController: UITableViewDelegate, UITableViewDataSource {
         let cell: FeedsTableViewCell = tableView.dequeueReusableCell(withIdentifier: "Feeds_Table_View_Cell", for: indexPath) as! FeedsTableViewCell
         cell.title.text = listQuestion[indexPath.row].title
         cell.userName.text = listQuestion[indexPath.row].owner?.display_name
+        cell.tagList.removeAllTags()
         cell.tagList.addTags(listQuestion[indexPath.row].tags ?? [""])
-        cell.upCount.text = "\(listQuestion[indexPath.row].answerCount ?? 0)"
+        cell.upCount.text = "\(listQuestion[indexPath.row].score ?? 0)"
         cell.timeStamp.text = Utils.getDateFromTimeStamp(timeStamp: Double(listQuestion[indexPath.row].creationDate ?? 0))
         return cell
     }
