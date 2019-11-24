@@ -94,8 +94,6 @@ class MyQuestionsViewController: UIViewController,WKNavigationDelegate{
     func showLogin() {
         wkWebView.isHidden = false
         myQuestionList.isHidden = true
-        //        wkWebView.cleanAllCookies()
-        //        wkWebView.refreshCookies()
         checkAndSetTransaction()
         self.setLogOutNavigation()
     }

@@ -35,6 +35,8 @@ class FeedsViewController: SwipeMenuViewController{
         super.viewDidLoad()
     }
     
+    
+    /* to change color based on appmode*/
     func changeColorBasedOnMode(){
         if self.traitCollection.userInterfaceStyle == .dark {
             view.backgroundColor = .gray
