@@ -22,7 +22,7 @@ class FeedsTableViewCell: UITableViewCell,TagListViewDelegate{
     override func awakeFromNib() {
         super.awakeFromNib()
         tagList.delegate = self
-        tagList.textFont = UIFont.systemFont(ofSize: 16)
+        tagList.textFont = UIFont.systemFont(ofSize: 12)
         tagList.alignment = .left // possible values are [.leading, .trailing, .left, .center, .right]
         // Initialization code
     }

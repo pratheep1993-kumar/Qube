@@ -65,7 +65,7 @@ extension TagViewController: UITableViewDelegate, UITableViewDataSource {
         cell.userName.text = listQuestion[indexPath.row].owner?.display_name
         cell.tagList.removeAllTags()
         cell.tagList.addTags(listQuestion[indexPath.row].tags ?? [""])
-        cell.upCount.text = "\(listQuestion[indexPath.row].score ?? 0)"
+        cell.upCount.text = "\(listQuestion[indexPath.row].score )"
         cell.timeStamp.text = Utils.getDateFromTimeStamp(timeStamp: Double(listQuestion[indexPath.row].creationDate ?? 0))
         return cell
     }

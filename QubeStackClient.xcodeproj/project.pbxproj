@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		0C11A5542389AFE900232D74 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C11A5532389AFE900232D74 /* Utils.swift */; };
 		0CABD8912386760300BAF16A /* Owner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CABD8902386760300BAF16A /* Owner.swift */; };
-		0CABD8932386BAB100BAF16A /* HorizontalProgrressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CABD8922386BAB100BAF16A /* HorizontalProgrressBar.swift */; };
-		0CABD8952386BC6300BAF16A /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CABD8942386BC6300BAF16A /* BaseViewController.swift */; };
 		0CABD8972386BE1500BAF16A /* UserDefaultsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CABD8962386BE1500BAF16A /* UserDefaultsModel.swift */; };
 		0CABD8A32387C29700BAF16A /* TagViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CABD8A22387C29700BAF16A /* TagViewController.swift */; };
 		0CE709002384FC8700AEEA50 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE708FF2384FC8700AEEA50 /* AppDelegate.swift */; };
@@ -38,8 +36,6 @@
 /* Begin PBXFileReference section */
 		0C11A5532389AFE900232D74 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		0CABD8902386760300BAF16A /* Owner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Owner.swift; sourceTree = "<group>"; };
-		0CABD8922386BAB100BAF16A /* HorizontalProgrressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalProgrressBar.swift; sourceTree = "<group>"; };
-		0CABD8942386BC6300BAF16A /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		0CABD8962386BE1500BAF16A /* UserDefaultsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsModel.swift; sourceTree = "<group>"; };
 		0CABD8A22387C29700BAF16A /* TagViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagViewController.swift; sourceTree = "<group>"; };
 		0CE708FC2384FC8700AEEA50 /* QubeStackClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QubeStackClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -121,8 +117,6 @@
 				0CE709082384FC8800AEEA50 /* Assets.xcassets */,
 				0CE7090A2384FC8800AEEA50 /* LaunchScreen.storyboard */,
 				0CE7090D2384FC8800AEEA50 /* Info.plist */,
-				0CABD8922386BAB100BAF16A /* HorizontalProgrressBar.swift */,
-				0CABD8942386BC6300BAF16A /* BaseViewController.swift */,
 				0CABD8962386BE1500BAF16A /* UserDefaultsModel.swift */,
 			);
 			path = QubeStackClient;
@@ -325,7 +319,6 @@
 				0CE7094D2385C34200AEEA50 /* ContentViewController.swift in Sources */,
 				0CE709452385B2D000AEEA50 /* FeedsViewController.swift in Sources */,
 				0CE709662385F67200AEEA50 /* Items.swift in Sources */,
-				0CABD8952386BC6300BAF16A /* BaseViewController.swift in Sources */,
 				0CABD8A32387C29700BAF16A /* TagViewController.swift in Sources */,
 				0C11A5542389AFE900232D74 /* Utils.swift in Sources */,
 				0CE709622385DCB900AEEA50 /* AllQuestionResponse.swift in Sources */,
@@ -338,7 +331,6 @@
 				0CE709362385780700AEEA50 /* Services.swift in Sources */,
 				0CE7095C2385DA7100AEEA50 /* ServicesApi.swift in Sources */,
 				0CE7094B2385B40F00AEEA50 /* HomeViewController.swift in Sources */,
-				0CABD8932386BAB100BAF16A /* HorizontalProgrressBar.swift in Sources */,
 				0CE709022384FC8700AEEA50 /* SceneDelegate.swift in Sources */,
 				0CE709592385CF0700AEEA50 /* FeedsTableViewCell.swift in Sources */,
 			);
