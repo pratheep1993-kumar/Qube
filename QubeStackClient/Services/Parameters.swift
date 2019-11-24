@@ -11,31 +11,26 @@ import Foundation
 
 class Parameters{
     
-    class func getQuestion(page: String,
-                           pagesize: String,order: String
-        ,sort: String,site: String,fromdate: String,todate: String) -> [String: Any] {
+    class func getQuestion(page: String,sort: String,site: String) -> [String: Any] {
         return [
             "page": page,
-            "pagesize": pagesize,
-            "order": order,
+            "pagesize": 10,
+            "order": "asc",
             "sort": sort,
             "site": site,
-            "fromdate": fromdate,
-            "todate": todate,
-            "key": "eoaW7zQs70UEV*FE5jTutg(("
+            "key": key
         ]
     }
     
-    class func getMyQuestion(page: String,
-                             pagesize: String,order: String
-        ,sort: String,site: String,fromdate: String,todate: String,sessionToken: String) -> [String: Any] {
+    class func getMyQuestion(page: String
+        ,sort: String,site: String,sessionToken: String) -> [String: Any] {
         return [
             "page": page,
-            "pagesize": pagesize,
-            "order": order,
+            "pagesize": 10,
+            "order": "asc",
             "sort": sort,
             "site": site,
-            "key": "eoaW7zQs70UEV*FE5jTutg((",
+            "key": key,
             "access_token":sessionToken
         ]
     }

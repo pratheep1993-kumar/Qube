@@ -18,19 +18,7 @@ class HomeViewController: UITabBarController,UITabBarControllerDelegate{
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-//        self.navigationController?.navigationBar.isHidden = true
         self.navigationController?.navigationBar.isTranslucent = false
-        // Create Tab one
-//        let tabOne = FeedsViewController()
-//        let tabOneBarItem = UITabBarItem(title: "Question", image: UIImage(named: "question.png"), selectedImage: UIImage(named: "question-selected.png"))
-//        tabOne.tabBarItem = tabOneBarItem
-//        
-//        
-//        // Create Tab two
-//        let tabTwo = MyQuestionsViewController()
-//        let tabTwoBarItem2 =  UITabBarItem(title: "User", image: UIImage(named: "home-page.png"), selectedImage: UIImage(named: "home-selected.png"))
-//        tabTwo.tabBarItem = tabTwoBarItem2
-//        self.viewControllers = [tabOne, tabTwo]
     }
     
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {

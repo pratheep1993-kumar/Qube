@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C11A5542389AFE900232D74 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C11A5532389AFE900232D74 /* Utils.swift */; };
 		0CABD8912386760300BAF16A /* Owner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CABD8902386760300BAF16A /* Owner.swift */; };
 		0CABD8932386BAB100BAF16A /* HorizontalProgrressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CABD8922386BAB100BAF16A /* HorizontalProgrressBar.swift */; };
 		0CABD8952386BC6300BAF16A /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CABD8942386BC6300BAF16A /* BaseViewController.swift */; };
@@ -36,6 +37,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0C11A5532389AFE900232D74 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		0CABD8902386760300BAF16A /* Owner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Owner.swift; sourceTree = "<group>"; };
 		0CABD8922386BAB100BAF16A /* HorizontalProgrressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalProgrressBar.swift; sourceTree = "<group>"; };
 		0CABD8942386BC6300BAF16A /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
@@ -80,6 +82,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0C11A5522389AFC000232D74 /* common */ = {
+			isa = PBXGroup;
+			children = (
+				0C11A5532389AFE900232D74 /* Utils.swift */,
+			);
+			path = common;
+			sourceTree = "<group>";
+		};
 		0CE708F32384FC8700AEEA50 = {
 			isa = PBXGroup;
 			children = (
@@ -101,6 +111,7 @@
 		0CE708FE2384FC8700AEEA50 /* QubeStackClient */ = {
 			isa = PBXGroup;
 			children = (
+				0C11A5522389AFC000232D74 /* common */,
 				0CE709602385DC9A00AEEA50 /* Model */,
 				0CE7095D2385DAF100AEEA50 /* AppConstant */,
 				0CE7093723857F1000AEEA50 /* View */,
@@ -319,6 +330,7 @@
 				0CE709662385F67200AEEA50 /* Items.swift in Sources */,
 				0CABD8952386BC6300BAF16A /* BaseViewController.swift in Sources */,
 				0CABD8A32387C29700BAF16A /* TagViewController.swift in Sources */,
+				0C11A5542389AFE900232D74 /* Utils.swift in Sources */,
 				0CE709622385DCB900AEEA50 /* AllQuestionResponse.swift in Sources */,
 				0CE709002384FC8700AEEA50 /* AppDelegate.swift in Sources */,
 				0CE709542385CA4F00AEEA50 /* Product.swift in Sources */,

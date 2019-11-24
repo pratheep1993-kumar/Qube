@@ -17,6 +17,7 @@ let StackExchangeUrl: String = "https://api.stackexchange.com/2.2/"
 
 let SESSION_TOKEN: String = "SESSION_TOKEN"
 let USER_LOGGED_IN = "USER_LOGGED_IN"
+let key: String = "eoaW7zQs70UEV*FE5jTutg(("
 
 
 

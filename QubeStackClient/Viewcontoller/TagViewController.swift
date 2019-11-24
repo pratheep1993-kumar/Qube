@@ -14,8 +14,6 @@ import ObjectMapper
 class TagViewController : UIViewController{
     
     @IBOutlet weak var myQuestionList: UITableView!
-    // var myQuestionList: UITableView!
-    //@IBOutlet weak var webView: WKWebView!
     var listQuestion: [Items] = [Items]()
     var tagName: String = ""
     
@@ -30,9 +28,9 @@ class TagViewController : UIViewController{
     }
     
     override func viewWillAppear(_ animated: Bool) {
-            self.navigationController?.navigationBar.topItem?.title = "tags"
-            self.navigationController?.navigationBar.topItem?.rightBarButtonItem = nil
-       }
+        self.navigationController?.navigationBar.topItem?.title = "tags"
+        self.navigationController?.navigationBar.topItem?.rightBarButtonItem = nil
+    }
     
     
     
@@ -63,6 +61,7 @@ extension TagViewController: UITableViewDelegate, UITableViewDataSource {
         cell.userName.text = listQuestion[indexPath.row].owner?.display_name
         cell.tagList.addTags(listQuestion[indexPath.row].tags ?? [""])
         cell.upCount.text = "\(listQuestion[indexPath.row].answerCount ?? 0)"
+        cell.timeStamp.text = Utils.getDateFromTimeStamp(timeStamp: Double(listQuestion[indexPath.row].creationDate ?? 0))
         return cell
     }
     

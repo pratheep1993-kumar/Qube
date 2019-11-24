@@ -14,6 +14,7 @@ class FeedsTableViewCell: UITableViewCell,TagListViewDelegate{
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var tagList: TagListView!
     @IBOutlet weak var upCount: UILabel!
+    @IBOutlet weak var timeStamp: UILabel!
     
     @IBOutlet weak var userImage: UIImageView!
     

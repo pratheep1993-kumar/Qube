@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (4.9.1)
+  - JGProgressHUD (2.1)
   - NVActivityIndicatorView (4.8.0):
     - NVActivityIndicatorView/Presenter (= 4.8.0)
   - NVActivityIndicatorView/Presenter (4.8.0)
@@ -10,6 +11,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire
+  - JGProgressHUD
   - NVActivityIndicatorView
   - ObjectMapper (= 3.3.0)
   - SwiftyJSON
@@ -19,6 +21,7 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - Alamofire
+    - JGProgressHUD
     - NVActivityIndicatorView
     - ObjectMapper
     - SwiftyJSON
@@ -27,12 +30,13 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
+  JGProgressHUD: aa403e9a5b45cae98903c4600cccdd98c0c3ec90
   NVActivityIndicatorView: d24b7ebcf80af5dcd994adb650e2b6c93379270f
   ObjectMapper: b612bf8c8e99c4dc0bb6013a51f7c27966ed5da9
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
   SwipeMenuViewController: c2c1f9b62022ce6b904b2553f0fa340c9008becd
   TagListView: 987b0bdbb16cd9d9e7c0e2ec32aff37ecba8b173
 
-PODFILE CHECKSUM: 1288508860aa43f27eef8483b00623b33330f5db
+PODFILE CHECKSUM: 71e1f38e93bd59cdcdd3a833f01fd58bc256f7f4
 
 COCOAPODS: 1.8.4

@@ -94,7 +94,7 @@ class MyQuestionsViewController: UIViewController,WKNavigationDelegate{
     
     
     func getMyQuestion() {
-        let param = Parameters.getMyQuestion(page: "1", pagesize: "10", order: "asc", sort: "activity", site: "stackoverflow", fromdate: "1556668800", todate: "1572566400", sessionToken: UserDefaultsModel.getSessionToken() ?? "")
+        let param = Parameters.getMyQuestion(page: "1", sort: "activity", site: "stackoverflow",sessionToken: UserDefaultsModel.getSessionToken() ?? "")
         Services.getMyQuestion(parameters: param as [String: AnyObject],completionHandler: { response in
             let data: AllQuestionResponse = Mapper<AllQuestionResponse>().map(JSON: response.result.value as! [String: Any])!
             self.listQuestion = data.items!
@@ -104,7 +104,7 @@ class MyQuestionsViewController: UIViewController,WKNavigationDelegate{
     }
     
     
-    func gicheckAndSetTransaction(){
+    func checkAndSetTransaction(){
         var urlComponents = URLComponents()
         urlComponents.scheme = "https"
         urlComponents.host = "stackoverflow.com"
@@ -192,6 +192,7 @@ extension MyQuestionsViewController: UITableViewDelegate, UITableViewDataSource 
         cell.userName.text = listQuestion[indexPath.row].owner?.display_name
         cell.tagList.addTags(listQuestion[indexPath.row].tags ?? [""])
         cell.tagList.delegate = self
+         cell.timeStamp.text = Utils.getDateFromTimeStamp(timeStamp: Double(listQuestion[indexPath.row].creationDate ?? 0))
         cell.upCount.text = "\(listQuestion[indexPath.row].answerCount)"
         return cell
     }

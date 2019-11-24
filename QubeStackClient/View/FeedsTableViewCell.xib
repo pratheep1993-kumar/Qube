@@ -122,6 +122,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="tagList" destination="r0q-sS-GMa" id="Y1k-MZ-fTe"/>
+                <outlet property="timeStamp" destination="q7P-x7-OxV" id="DmT-nJ-XbX"/>
                 <outlet property="title" destination="gHJ-fu-drF" id="j7I-SD-t4T"/>
                 <outlet property="upCount" destination="Qdd-Z0-eAM" id="bD9-Hs-8pf"/>
                 <outlet property="userName" destination="o9y-X8-uLp" id="ftA-H1-fQk"/>

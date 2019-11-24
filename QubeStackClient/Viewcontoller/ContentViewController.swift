@@ -10,6 +10,9 @@ import Foundation
 import UIKit
 import  ObjectMapper
 import TagListView
+import NVActivityIndicatorView
+import JGProgressHUD
+
 
 struct Category {
     var title: String
@@ -21,7 +24,13 @@ class ContentViewController: UIViewController {
     @IBOutlet weak var feedsListing: UITableView!
     var listQuestion: [Items] = [Items]()
     
+    
+    @IBOutlet weak var noResultFound: UILabel!
     var content: String = ""
+    var loadingCount = 10
+    var pagecount =  1
+    var isLoading: Bool = true
+    var LastPages: Bool = true
     var category : Category?
     var contentLabel: UILabel! {
         didSet {
@@ -31,7 +40,14 @@ class ContentViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.feedsListing.register(UINib(nibName: "FeedsTableViewCell", bundle: nil), forCellReuseIdentifier: "Feeds_Table_View_Cell")
+        intNoResultFound()
         getAllQuestions()
+    }
+    
+    
+    func intNoResultFound(){
+        noResultFound.center = self.view.center
+        noResultFound.textAlignment = .center
     }
     override func viewWillAppear(_ animated: Bool) {
          self.navigationController?.navigationBar.topItem?.title = "Feeds"
@@ -39,15 +55,22 @@ class ContentViewController: UIViewController {
     }
     
     func getAllQuestions() {
-        let param = Parameters.getQuestion(page: "1", pagesize: "10", order: "asc", sort: category!.sortType, site: "stackoverflow", fromdate: "1556668800", todate: "1572566400")
+        let progress = JGProgressHUD(style: .dark)
+         progress.show(in: self.view)
+        isLoading = true
+        let param = Parameters.getQuestion(page: "1", sort: category!.sortType, site: "stackoverflow")
         Services.getAllQuestion(parameters: param as [String: AnyObject],completionHandler: { response in
+             progress.dismiss()
             let data: AllQuestionResponse = Mapper<AllQuestionResponse>().map(JSON: response.result.value as! [String: Any])!
             self.listQuestion = data.items!
+            if data.items!.count > 0 {
             self.feedsListing.reloadData()
+            }else{
+                self.feedsListing.isHidden = true
+            }
         }) { _ in
         }
     }
-    
 }
 
 extension ContentViewController: UITableViewDelegate, UITableViewDataSource {
@@ -63,10 +86,11 @@ extension ContentViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: FeedsTableViewCell = tableView.dequeueReusableCell(withIdentifier: "Feeds_Table_View_Cell", for: indexPath) as! FeedsTableViewCell
         cell.title.text = listQuestion[indexPath.row].title
-        cell.userName.text = listQuestion[indexPath.row].owner?.display_name
+        cell.userName.text = listQuestion[indexPath.row].owner?.display_name 
         cell.tagList.addTags(listQuestion[indexPath.row].tags ?? [""])
         cell.tagList.delegate = self
-        //cell.upCount.text = listQuestion[indexPath.row].answerCount
+        cell.timeStamp.text = Utils.getDateFromTimeStamp(timeStamp: Double(listQuestion[indexPath.row].creationDate ?? 0))
+        cell.upCount.text = "\(listQuestion[indexPath.row].answerCount ?? 0)"
         return cell
     }
     
