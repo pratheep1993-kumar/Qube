@@ -19,7 +19,6 @@
 		0CE7090C2384FC8800AEEA50 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0CE7090A2384FC8800AEEA50 /* LaunchScreen.storyboard */; };
 		0CE709172385010300AEEA50 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0CE709162385010300AEEA50 /* Main.storyboard */; };
 		0CE709362385780700AEEA50 /* Services.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE709352385780700AEEA50 /* Services.swift */; };
-		0CE7093F238581DA00AEEA50 /* ShowAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE7093E238581DA00AEEA50 /* ShowAlertController.swift */; };
 		0CE709412385842900AEEA50 /* ErrorResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE709402385842900AEEA50 /* ErrorResponseModel.swift */; };
 		0CE709452385B2D000AEEA50 /* FeedsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE709442385B2D000AEEA50 /* FeedsViewController.swift */; };
 		0CE709472385B2F600AEEA50 /* MyQuestionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE709462385B2F600AEEA50 /* MyQuestionsViewController.swift */; };
@@ -51,7 +50,6 @@
 		0CE7090D2384FC8800AEEA50 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0CE709162385010300AEEA50 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		0CE709352385780700AEEA50 /* Services.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services.swift; sourceTree = "<group>"; };
-		0CE7093E238581DA00AEEA50 /* ShowAlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShowAlertController.swift; path = "../../../HipBar-The-Drinks-App-iOS/HipBar/ShowAlertController.swift"; sourceTree = "<group>"; };
 		0CE709402385842900AEEA50 /* ErrorResponseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ErrorResponseModel.swift; path = "../../../HipBar-The-Drinks-App-iOS/HipBar/ErrorResponseModel.swift"; sourceTree = "<group>"; };
 		0CE709442385B2D000AEEA50 /* FeedsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedsViewController.swift; sourceTree = "<group>"; };
 		0CE709462385B2F600AEEA50 /* MyQuestionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyQuestionsViewController.swift; sourceTree = "<group>"; };
@@ -164,7 +162,6 @@
 		0CE7093723857F1000AEEA50 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				0CE7093E238581DA00AEEA50 /* ShowAlertController.swift */,
 				0CE709402385842900AEEA50 /* ErrorResponseModel.swift */,
 				0CE709572385CF0700AEEA50 /* FeedsTableViewCell.swift */,
 				0CE709582385CF0700AEEA50 /* FeedsTableViewCell.xib */,
@@ -338,7 +335,6 @@
 				0CE709642385E91300AEEA50 /* Parameters.swift in Sources */,
 				0CE709412385842900AEEA50 /* ErrorResponseModel.swift in Sources */,
 				0CABD8912386760300BAF16A /* Owner.swift in Sources */,
-				0CE7093F238581DA00AEEA50 /* ShowAlertController.swift in Sources */,
 				0CE709362385780700AEEA50 /* Services.swift in Sources */,
 				0CE7095C2385DA7100AEEA50 /* ServicesApi.swift in Sources */,
 				0CE7094B2385B40F00AEEA50 /* HomeViewController.swift in Sources */,

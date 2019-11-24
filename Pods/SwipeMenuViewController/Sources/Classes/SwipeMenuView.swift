@@ -19,7 +19,7 @@ public struct SwipeMenuViewOptions {
 
         public struct ItemView {
             /// ItemView width. Defaults to `100.0`.
-            public var width: CGFloat = 140.0
+            public var width: CGFloat = 100.0
 
             /// ItemView side margin. Defaults to `5.0`.
             public var margin: CGFloat = 5.0

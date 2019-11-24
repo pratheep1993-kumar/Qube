@@ -289,7 +289,7 @@ extension Services {
                 if errorHandler != nil {
                     errorHandler!(response)
                 } else {
-                    errorAlert(response: response)
+                   // errorAlert(response: response)
                 }
             }
         }
@@ -312,16 +312,7 @@ extension Services {
     static func showErrorAlert(title: String, message: String) {
     }
     
-    static func errorAlert(response: DataResponse<Any>, actionHandler: OnActionHandler? = nil) {
-        if let value = response.result.value {
-            //            var showLogoutWindow = false
-            let errorResponse = Mapper<ErrorResponseModel>().map(JSON: value as! [String: Any])
-            hideLoadingIndicator()
-            if checkAndClearSession(response) {
-                
-            }
-        }
-    }
+   
     
     static func checkAndClearSession(_ response: DataResponse<Any>) -> Bool {
         

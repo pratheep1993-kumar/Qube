@@ -40,9 +40,12 @@ class ContentViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.feedsListing.register(UINib(nibName: "FeedsTableViewCell", bundle: nil), forCellReuseIdentifier: "Feeds_Table_View_Cell")
+         feedsListing.allowsSelection = false
         intNoResultFound()
         getAllQuestions()
     }
+    
+    
     
     
     func intNoResultFound(){
@@ -53,6 +56,9 @@ class ContentViewController: UIViewController {
          self.navigationController?.navigationBar.topItem?.title = "Feeds"
          self.navigationController?.navigationBar.topItem?.rightBarButtonItem = nil
     }
+    
+    
+    
     
     func getAllQuestions() {
         let progress = JGProgressHUD(style: .dark)

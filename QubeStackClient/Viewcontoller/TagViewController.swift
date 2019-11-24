@@ -23,13 +23,13 @@ class TagViewController : UIViewController{
     override func viewDidLoad() {
         self.navigationController?.navigationBar.isHidden = false
         self.myQuestionList.register(UINib(nibName: "FeedsTableViewCell", bundle: nil), forCellReuseIdentifier: "Feeds_Table_View_Cell")
+       myQuestionList.allowsSelection = false
         self.view.addSubview(myQuestionList!)
         getTagBasedQuestion()
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.navigationController?.navigationBar.topItem?.title = "tags"
         self.navigationController?.navigationBar.topItem?.rightBarButtonItem = nil
     }
     

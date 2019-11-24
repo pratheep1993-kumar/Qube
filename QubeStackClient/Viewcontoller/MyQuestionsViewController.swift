@@ -48,6 +48,7 @@ class MyQuestionsViewController: UIViewController,WKNavigationDelegate{
         myQuestionList = UITableView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height))
         myQuestionList.delegate = self
         myQuestionList.dataSource = self
+        myQuestionList.allowsSelection = false
         self.myQuestionList.register(UINib(nibName: "FeedsTableViewCell", bundle: nil), forCellReuseIdentifier: "Feeds_Table_View_Cell")
         self.view.addSubview(myQuestionList!)
     }
