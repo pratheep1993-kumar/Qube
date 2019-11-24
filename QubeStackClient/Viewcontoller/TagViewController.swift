@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import ObjectMapper
+import JGProgressHUD
 
 
 class TagViewController : UIViewController{
@@ -35,8 +36,11 @@ class TagViewController : UIViewController{
     
     
     func getTagBasedQuestion() {
+        let progress = JGProgressHUD(style: .dark)
+              progress.show(in: self.view)
         let param = Parameters.getTagBasedQuestion(page: "1")
         Services.getTagBasedQuestion(tag: tagName, parameters: param as [String: AnyObject],completionHandler: { response in
+            progress.dismiss()
             let data: AllQuestionResponse = Mapper<AllQuestionResponse>().map(JSON: response.result.value as! [String: Any])!
             self.listQuestion = data.items!
             self.myQuestionList.reloadData()

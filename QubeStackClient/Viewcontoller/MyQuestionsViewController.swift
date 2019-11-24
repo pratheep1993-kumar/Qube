@@ -11,7 +11,7 @@ import UIKit
 import WebKit
 import ObjectMapper
 import TagListView
-
+import JGProgressHUD
 class MyQuestionsViewController: UIViewController,WKNavigationDelegate{
     
     var myQuestionList: UITableView!
@@ -25,11 +25,14 @@ class MyQuestionsViewController: UIViewController,WKNavigationDelegate{
     override func viewDidLoad() {
         initWebView()
         initTableView()
-        checkAndSetTransaction()
         if UserDefaultsModel.isUserLoggedIn() ?? false {
+            wkWebView.isHidden = true
+            myQuestionList.isHidden = false
             showMyQuestion()
         }else{
-            showLogin()
+             wkWebView.isHidden = false
+             myQuestionList.isHidden = true
+             checkAndSetTransaction()
         }
         
     }
@@ -76,26 +79,28 @@ class MyQuestionsViewController: UIViewController,WKNavigationDelegate{
     }
     
     func showMyQuestion(){
-        let logOut = UIBarButtonItem(image: UIImage(named: "logout-blue"), style: .done, target: self, action: #selector(sayLogout(sender:)))
-        self.navigationController?.navigationBar.topItem?.title = "My Questions"
-        self.navigationController?.navigationBar.topItem?.rightBarButtonItem = logOut
         wkWebView.isHidden = true
         myQuestionList.isHidden = false
         getMyQuestion()
+        self.setLoginNavigation()
     }
     
     func showLogin() {
-        self.navigationController?.navigationBar.topItem?.title = "Log in"
-        self.navigationController?.navigationBar.topItem?.rightBarButtonItem = nil
+        wkWebView.cleanAllCookies()
+        wkWebView.refreshCookies()
         wkWebView.isHidden = false
         myQuestionList.isHidden = true
+        self.setLogOutNavigation()
         checkAndSetTransaction()
     }
     
     
     func getMyQuestion() {
+        let progress = JGProgressHUD(style: .dark)
+        progress.show(in: self.view)
         let param = Parameters.getMyQuestion(page: "1", sort: "activity", site: "stackoverflow",sessionToken: UserDefaultsModel.getSessionToken() ?? "")
         Services.getMyQuestion(parameters: param as [String: AnyObject],completionHandler: { response in
+            progress.dismiss()
             let data: AllQuestionResponse = Mapper<AllQuestionResponse>().map(JSON: response.result.value as! [String: Any])!
             self.listQuestion = data.items!
             self.myQuestionList.reloadData()
@@ -129,7 +134,23 @@ class MyQuestionsViewController: UIViewController,WKNavigationDelegate{
     
     
     override func viewWillAppear(_ animated: Bool) {
+        if (UserDefaultsModel.isUserLoggedIn() ?? false){
+       setLoginNavigation()
+        }else{
+           setLogOutNavigation()
+        }
        
+    }
+    
+    func setLogOutNavigation(){
+        self.navigationController?.navigationBar.topItem?.title = "Log in"
+                   self.navigationController?.navigationBar.topItem?.rightBarButtonItem = nil
+    }
+    
+    func setLoginNavigation(){
+        let logOut = UIBarButtonItem(image: UIImage(named: "logout-blue"), style: .done, target: self, action: #selector(sayLogout(sender:)))
+        self.navigationController?.navigationBar.topItem?.title = "My Questions"
+        self.navigationController?.navigationBar.topItem?.rightBarButtonItem = logOut
     }
     
  
@@ -144,7 +165,7 @@ class MyQuestionsViewController: UIViewController,WKNavigationDelegate{
     }
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
         if let urlStr = navigationAction.request.url?.absoluteString {
-            if urlStr.range(of: regex , options: .regularExpression) != nil {
+            if urlStr.contains("access_token"){
                 let accessToken = urlStr.replacingOccurrences(of: "https://stackoverflow.com/oauth/login_success#access_token=", with: "").replacingOccurrences(of: "&expires=86400", with: "")
                 print("bucjket \(accessToken)")
                 saveSessionToken(accessToken: accessToken)
@@ -156,7 +177,7 @@ class MyQuestionsViewController: UIViewController,WKNavigationDelegate{
     func saveSessionToken(accessToken: String){
         UserDefaultsModel.setObject(object: accessToken, forKey: SESSION_TOKEN)
         UserDefaultsModel.setObject(object: true, forKey: USER_LOGGED_IN)
-        if (UserDefaultsModel.getSessionToken() != ""){
+        if (UserDefaultsModel.getSessionToken() != nil){
             self.showMyQuestion()
         }
 
@@ -193,7 +214,7 @@ extension MyQuestionsViewController: UITableViewDelegate, UITableViewDataSource 
         cell.tagList.addTags(listQuestion[indexPath.row].tags ?? [""])
         cell.tagList.delegate = self
          cell.timeStamp.text = Utils.getDateFromTimeStamp(timeStamp: Double(listQuestion[indexPath.row].creationDate ?? 0))
-        cell.upCount.text = "\(listQuestion[indexPath.row].answerCount)"
+        cell.upCount.text = "\(String(describing: listQuestion[indexPath.row].answerCount))"
         return cell
     }
     
@@ -204,7 +225,7 @@ extension MyQuestionsViewController: UITableViewDelegate, UITableViewDataSource 
 }
 
 extension MyQuestionsViewController : TagListViewDelegate {
-    func tagPressed(title: String, tagView: TagView, sender: TagListView) {
+    func tagPressed(_ title: String, tagView: TagView, sender: TagListView) {
         print("Tag pressed: \(title), \(sender)")
         let vc = TagViewController()
         vc.tagName = title//change this to your class name

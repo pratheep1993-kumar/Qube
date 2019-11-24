@@ -25,7 +25,7 @@ extension Services {
         var urlComponents = URLComponents()
         urlComponents.scheme = "https"
         urlComponents.host = "api.stackexchange.com"
-        urlComponents.path = "/2.2/me/posts"
+        urlComponents.path = "/2.2/me/questions"
         urlComponents.setQueryItems(with: parameters)
         makeGETCall(urlString: urlComponents.url?.absoluteString ?? "" ,
                     completionHandler: completionHandler,

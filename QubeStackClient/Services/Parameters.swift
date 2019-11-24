@@ -14,7 +14,7 @@ class Parameters{
     class func getQuestion(page: String,sort: String,site: String) -> [String: Any] {
         return [
             "page": page,
-            "pagesize": 10,
+            "pagesize": "20",
             "order": "asc",
             "sort": sort,
             "site": site,
@@ -26,7 +26,7 @@ class Parameters{
         ,sort: String,site: String,sessionToken: String) -> [String: Any] {
         return [
             "page": page,
-            "pagesize": 10,
+            "pagesize": "20",
             "order": "asc",
             "sort": sort,
             "site": site,
@@ -38,7 +38,7 @@ class Parameters{
     class func getTagBasedQuestion(page: String) -> [String: Any] {
         return [
             "page": page,
-            "pagesize": 10,
+            "pagesize": "20",
             "site": "stackoverflow",
             "key": "eoaW7zQs70UEV*FE5jTutg(("
         ]
