@@ -30,9 +30,9 @@ class MyQuestionsViewController: UIViewController,WKNavigationDelegate{
             myQuestionList.isHidden = false
             showMyQuestion()
         }else{
-             wkWebView.isHidden = false
-             myQuestionList.isHidden = true
-             checkAndSetTransaction()
+            wkWebView.isHidden = false
+            myQuestionList.isHidden = true
+            checkAndSetTransaction()
         }
         
     }
@@ -47,10 +47,10 @@ class MyQuestionsViewController: UIViewController,WKNavigationDelegate{
     
     func initTableView(){
         myQuestionList = UITableView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height))
-               myQuestionList.delegate = self
-               myQuestionList.dataSource = self
-               self.myQuestionList.register(UINib(nibName: "FeedsTableViewCell", bundle: nil), forCellReuseIdentifier: "Feeds_Table_View_Cell")
-               self.view.addSubview(myQuestionList!)
+        myQuestionList.delegate = self
+        myQuestionList.dataSource = self
+        self.myQuestionList.register(UINib(nibName: "FeedsTableViewCell", bundle: nil), forCellReuseIdentifier: "Feeds_Table_View_Cell")
+        self.view.addSubview(myQuestionList!)
     }
     
     @objc func sayLogout(sender: UIBarButtonItem) {
@@ -122,7 +122,7 @@ class MyQuestionsViewController: UIViewController,WKNavigationDelegate{
         
     }
     
-   
+    
     
     func loginParams(client_id:String,scope: String,redirect_uri: String) -> [String: Any] {
         return [
@@ -135,16 +135,16 @@ class MyQuestionsViewController: UIViewController,WKNavigationDelegate{
     
     override func viewWillAppear(_ animated: Bool) {
         if (UserDefaultsModel.isUserLoggedIn() ?? false){
-       setLoginNavigation()
+            setLoginNavigation()
         }else{
-           setLogOutNavigation()
+            setLogOutNavigation()
         }
-       
+        
     }
     
     func setLogOutNavigation(){
         self.navigationController?.navigationBar.topItem?.title = "Log in"
-                   self.navigationController?.navigationBar.topItem?.rightBarButtonItem = nil
+        self.navigationController?.navigationBar.topItem?.rightBarButtonItem = nil
     }
     
     func setLoginNavigation(){
@@ -153,7 +153,7 @@ class MyQuestionsViewController: UIViewController,WKNavigationDelegate{
         self.navigationController?.navigationBar.topItem?.rightBarButtonItem = logOut
     }
     
- 
+    
     private func webView(webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: NSError) {
         print(error.localizedDescription)
     }
@@ -180,7 +180,7 @@ class MyQuestionsViewController: UIViewController,WKNavigationDelegate{
         if (UserDefaultsModel.getSessionToken() != nil){
             self.showMyQuestion()
         }
-
+        
     }
     
 }
@@ -213,7 +213,7 @@ extension MyQuestionsViewController: UITableViewDelegate, UITableViewDataSource 
         cell.userName.text = listQuestion[indexPath.row].owner?.display_name
         cell.tagList.addTags(listQuestion[indexPath.row].tags ?? [""])
         cell.tagList.delegate = self
-         cell.timeStamp.text = Utils.getDateFromTimeStamp(timeStamp: Double(listQuestion[indexPath.row].creationDate ?? 0))
+        cell.timeStamp.text = Utils.getDateFromTimeStamp(timeStamp: Double(listQuestion[indexPath.row].creationDate ?? 0))
         cell.upCount.text = "\(String(describing: listQuestion[indexPath.row].answerCount))"
         return cell
     }
