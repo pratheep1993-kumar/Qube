@@ -31,17 +31,15 @@ class FeedsViewController: SwipeMenuViewController{
             vc.category = data
             self.addChild(vc)
         }
+        changeColorBasedOnMode()
+        super.viewDidLoad()
+    }
+    
+    func changeColorBasedOnMode(){
         if self.traitCollection.userInterfaceStyle == .dark {
             view.backgroundColor = .gray
         } else {
             view.backgroundColor = .white
-        }
-        super.viewDidLoad()
-    }
-    
-    private func reload() {
-        if let menuView = swipeMenuView {
-            menuView.reloadData(options: options)
         }
     }
 }
